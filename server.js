@@ -55,7 +55,7 @@ app.use("/", adminRoutes);
 // Connect MongoDB & Start Server
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    app.listen(process.env.PORT, () => {
+    app.listen(process.env.PORT,'0.0.0.0', () => {
       console.log(`🚀 Server running at http://localhost:${process.env.PORT}`);
     });
   })
