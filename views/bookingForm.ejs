@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <h2 class="text-center fw-bold mb-4" style="color: #7b1fa2;">📌 Reserve <%= resource.name %></h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5 col-xl-4">
+      <form action="/book" method="POST" class="shadow p-4 rounded-4 border" style="background-color: #f9f5fc;">
+        <input type="hidden" name="resourceId" value="<%= resource._id %>">
+
+        <!-- Date Picker -->
+        <div class="mb-3">
+          <label for="date" class="form-label fw-semibold">Select Date</label>
+          <input 
+            type="date" 
+            name="date" 
+            class="form-control border-purple" 
+            required 
+            min="<%= new Date().toISOString().split('T')[0] %>" 
+            style="background-color: #fff3ff;"
+          >
+        </div>
+
+        <!-- Time Slot Selector -->
+        <div class="mb-3">
+          <label for="timeSlot" class="form-label fw-semibold">Select Time Slot</label>
+          <select name="timeSlot" class="form-select border-purple" required style="background-color: #fff3ff;">
+            <option value="">Choose a time</option>
+            <option value="09:00 AM - 10:00 AM">09:00 AM - 10:00 AM</option>
+            <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+            <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+            <option value="12:00 PM - 01:00 PM">12:00 PM - 01:00 PM</option>
+            <option value="02:00 PM - 03:00 PM">02:00 PM - 03:00 PM</option>
+            <option value="03:00 PM - 04:00 PM">03:00 PM - 04:00 PM</option>
+          </select>
+        </div>
+
+        <!-- Submit Buttons -->
+        <div class="text-end mt-4">
+          <button type="submit" class="btn btn-primary px-4">✅ Book Now</button>
+          <a href="/dashboard" class="btn btn-outline-secondary ms-2">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

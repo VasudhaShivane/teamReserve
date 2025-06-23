@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg border-0 rounded-4" style="background: #f8f4f9;">
+        <div class="card-body p-5">
+
+          <h2 class="mb-4 text-center fw-bold" style="color: #6a1b9a;">➕ Add New Resource</h2>
+
+          <form action="/resource" method="POST">
+
+            <div class="mb-3">
+              <label for="name" class="form-label fw-semibold" style="color: #6a1b9a;">Resource Name</label>
+              <input type="text" name="name" id="name" class="form-control border-purple" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="type" class="form-label fw-semibold" style="color: #6a1b9a;">Type</label>
+              <input type="text" name="type" id="type" class="form-control border-purple" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label fw-semibold" style="color: #6a1b9a;">Description</label>
+              <textarea name="description" id="description" class="form-control border-purple" rows="4" placeholder="Add a short description..."></textarea>
+            </div>
+
+            <div class="text-end">
+              <button type="submit" class="btn btn-lg px-4 text-white" style="background-color: #8e24aa;">
+                Add Resource
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

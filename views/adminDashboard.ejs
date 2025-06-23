@@ -1,0 +1,43 @@
+<div class="container py-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold" style="color: #6c5ce7;">🛠️ Admin Panel: All Bookings</h2>
+    <p class="text-muted">Overview of all bookings made in the system</p>
+  </div>
+
+  <% if (bookings.length === 0) { %>
+    <div class="alert alert-info text-center shadow-sm">
+      No bookings found.
+    </div>
+  <% } else { %>
+    <div class="table-responsive shadow-sm rounded" style="background-color: #fffafc;">
+      <table class="table table-bordered table-striped align-middle">
+        <thead style="background-color: #dcd0ff;" class="text-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">👤 User</th>
+            <th scope="col">📦 Resource</th>
+            <th scope="col">📅 Date</th>
+            <th scope="col">⏰ Time Slot</th>
+            <th scope="col">🕒 Booked At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% bookings.forEach((booking, index) => { %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= booking.userId?.email || 'N/A' %></td>
+              <td><%= booking.resourceId?.name %> (<%= booking.resourceId?.type %>)</td>
+              <td><%= booking.date %></td>
+              <td><%= booking.timeSlot %></td>
+              <td><%= new Date(booking.createdAt).toLocaleString() %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+
+  <div class="text-end mt-4">
+    <a href="/dashboard" class="btn btn-outline-primary">← Back to Dashboard</a>
+  </div>
+</div>

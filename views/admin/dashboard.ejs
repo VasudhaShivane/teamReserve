@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h2 class="mb-4 text-primary">Admin Dashboard</h2>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card border-success shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Total Resources</h5>
+          <p class="card-text fs-3 fw-bold text-success"><%= totalResources %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card border-primary shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Total Bookings</h5>
+          <p class="card-text fs-3 fw-bold text-primary"><%= totalBookings %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card border-info shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Total Users</h5>
+          <p class="card-text fs-3 fw-bold text-info"><%= totalUsers %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <a href="/dashboard" class="btn btn-outline-secondary">View as User</a>
+  </div>
+</div>

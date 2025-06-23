@@ -1,0 +1,58 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold" style="color: #6c5ce7;">TeamReserve Dashboard</h1>
+    <p class="text-muted">Browse, manage, and book your team resources effortlessly.</p>
+  </div>
+
+  <!-- 🔍 Search Bar -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-8">
+      <form action="/dashboard" method="GET" class="d-flex shadow-sm p-2 bg-light rounded">
+        <input type="text" name="search" class="form-control me-2" placeholder="Search by name or type..." value="<%= search || '' %>">
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+        <% if (search) { %>
+          <a href="/dashboard" class="btn btn-outline-secondary ms-2">Clear</a>
+        <% } %>
+      </form>
+    </div>
+  </div>
+
+  <% if (session.isAdmin) { %>
+    <div class="text-end mb-3">
+      <a href="/admin" class="btn btn-outline-dark btn-sm">🔁 Switch to Admin Panel</a>
+    </div>
+  <% } %>
+
+  <!-- 🧾 Resources Grid -->
+  <% if (resources.length === 0) { %>
+    <p class="text-center text-muted mt-5">No resources found.</p>
+  <% } else { %>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <% resources.forEach(resource => { %>
+        <div class="col">
+          <div class="card h-100 border-0 shadow-sm" style="background-color: #f8f6ff;">
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold"><%= resource.name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= resource.type %></h6>
+              <p class="card-text text-dark"><%= resource.description %></p>
+              <p class="text-muted small">🔄 Bookings: <%= resource.bookedSlots?.length || 0 %></p>
+
+              <div class="d-flex flex-wrap gap-2 mt-3">
+                <a href="/resource/view/<%= resource._id %>" class="btn btn-outline-primary btn-sm">👁 View</a>
+                <a href="/resource/edit/<%= resource._id %>" class="btn btn-outline-warning btn-sm">✏️ Edit</a>
+                <form action="/resource/delete/<%= resource._id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this resource?')" style="display:inline;">
+                  <button class="btn btn-outline-danger btn-sm" type="submit">🗑 Delete</button>
+                </form>
+                <a href="/book/<%= resource._id %>" class="btn btn-outline-success btn-sm">📅 Reserve</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <div class="text-end mt-4">
+    <a href="/resource" class="btn btn-success">➕ Add New Resource</a>
+  </div>
+</div>
