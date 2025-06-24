@@ -37,4 +37,4 @@ jobs:
           script: |
             cd /home/ubuntu/teamReserve
             npm install
-            pm2 restart app || pm2 start app.js --name app
+            pm2 restart app || pm2 start server.js --name app
