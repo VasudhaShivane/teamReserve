@@ -52,7 +52,7 @@ A **Resource Booking Web App** for remote teams, allowing users to reserve resou
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/teamReserve.git
+git clone https://github.com/VasudhaShivane/teamReserve.git
 cd teamReserve
 
 # 2. Install dependencies
