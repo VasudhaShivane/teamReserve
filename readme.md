@@ -35,7 +35,6 @@ A **Resource Booking Web App** for remote teams, allowing users to reserve resou
 | **Deployment** | AWS EC2 |
 | **Process Manager** | PM2 |
 | **CI/CD** | GitHub Actions |
-| **Reverse Proxy & SSL** | Nginx, Let's Encrypt |
 | **Version Control** | Git & GitHub |
 
 ---
